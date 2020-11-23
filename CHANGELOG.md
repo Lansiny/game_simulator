@@ -5,6 +5,7 @@
 
 * 紧急修复brush方法名不一致的问题 ([0dbf31b](https://github.com/Lansiny/game_simulator/commit/0dbf31b5a69cdb84570b6472c36eef733032250b))
 * 精灵添加逻辑 ([97f3957](https://github.com/Lansiny/game_simulator/commit/97f3957ee72b54568ed650c000f2f0851a398532))
+* 修复图片加载完成的监听方法，加载完后再设sprite置宽高 ([beba5be](https://github.com/Lansiny/game_simulator/commit/beba5becdf994c238787236384f223f6655d869c))
 * 在brush.load时根据image对象的宽高设置sprite的宽高 ([a9bf7e8](https://github.com/Lansiny/game_simulator/commit/a9bf7e8cb7276eeee9cf206cac865373a9e25d0b))
 * FPS locking logic ([a969abb](https://github.com/Lansiny/game_simulator/commit/a969abbaf06e00ede6481fc090ee88a662a0f96f))
 

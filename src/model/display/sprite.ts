@@ -48,7 +48,7 @@ class Sprite {
   }
 
   draw({ ctx }) { }
-
+  init(){}
   action() { }
 }
 

@@ -1,4 +1,3 @@
-'use strict'
 
 import {Sprite} from '../display/sprite'
 import {config} from '../../config/index'

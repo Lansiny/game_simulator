@@ -1,24 +1,11 @@
 import { config } from '../../config'
-import { prefixPath } from '../../config/assets'
+
 import { Sprite } from './sprite'
 // const fse = require('fs-extra')
 class Brush {
   spriteList: Sprite[]
   constructor({ spriteList = [] }) {
     this.spriteList = spriteList
-  }
-
-  // 加载资源
-  init() {
-    this.spriteList.forEach(sprite => {
-      const image = new Image()
-      image.src = prefixPath + sprite.assetPath
-      image.onload = () => {
-        sprite.width = image.naturalWidth
-        sprite.height = image.naturalHeight
-        sprite.image = image
-      }
-    })
   }
 
   // 渲染

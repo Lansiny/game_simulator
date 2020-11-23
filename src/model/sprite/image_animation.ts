@@ -1,23 +1,30 @@
 
 import { Sprite } from '../display/sprite'
 import { prefixPath } from '../../config/assets'
-class ImageStatic extends Sprite {
+class ImageAnimation extends Sprite {
   constructor({
-    name = 'image01',
-    assetPath = ''
+    name = 'animation01',
+    assetPath = '',
+    width = 64,
+    height = 64
   }) {
-    super({ group: 'image', name, assetPath })
+    super({ group: 'animation', name, assetPath, isAction: true})
     const image = new Image()
     image.src = prefixPath + this.assetPath
     image.onload = () => {
-      this.width = image.naturalWidth
-      this.height = image.naturalHeight
+      // TODO: 帧动画的宽高计算
+
+      this.width = width
+      this.height = height
       this.image = image
     }
   }
 
   draw({ ctx }) {
-    if (!this.assetPath) {
+    if (this.assetPath) {
+      // TODO: 帧动画的绘制方法
+
+    } else {
       ctx.fillStyle = '#000'
       ctx.fillRect(
         this.position.x,
@@ -32,17 +39,8 @@ class ImageStatic extends Sprite {
         this.width - 2,
         this.height - 2
       )
-    } else {
-      const args = [
-        this.image,
-        this.position.x,
-        this.position.y,
-        this.width,
-        this.height
-      ]
-      ctx.drawImage(...args)
     }
   }
 }
 
-export { ImageStatic }
+export { ImageAnimation }
