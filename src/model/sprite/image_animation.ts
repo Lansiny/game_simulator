@@ -1,6 +1,5 @@
 
 import { Sprite } from '../display/sprite'
-import { prefixPath } from '../../config/assets'
 class ImageAnimation extends Sprite {
   constructor({
     name = 'animation01',
@@ -10,7 +9,7 @@ class ImageAnimation extends Sprite {
   }) {
     super({ group: 'animation', name, assetPath, isAction: true})
     const image = new Image()
-    image.src = prefixPath + this.assetPath
+    image.src = this.assetPath
     image.onload = () => {
       // TODO: 帧动画的宽高计算
 

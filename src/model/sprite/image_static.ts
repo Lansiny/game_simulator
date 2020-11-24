@@ -1,6 +1,5 @@
 
 import { Sprite } from '../display/sprite'
-import { prefixPath } from '../../config/assets'
 class ImageStatic extends Sprite {
   constructor({
     name = 'image01',
@@ -8,7 +7,7 @@ class ImageStatic extends Sprite {
   }) {
     super({ group: 'image', name, assetPath })
     const image = new Image()
-    image.src = prefixPath + this.assetPath
+    image.src = this.assetPath
     image.onload = () => {
       this.width = image.naturalWidth
       this.height = image.naturalHeight
@@ -32,7 +31,7 @@ class ImageStatic extends Sprite {
         this.width - 2,
         this.height - 2
       )
-    } else {
+    } else if(this.image) {
       const args = [
         this.image,
         this.position.x,

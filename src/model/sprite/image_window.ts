@@ -1,5 +1,4 @@
 
-import { prefixPath } from '../../config/assets'
 import { Sprite } from '../display/sprite'
 
 class ImageWindow extends Sprite {
@@ -12,7 +11,7 @@ class ImageWindow extends Sprite {
   }) {
     super({ group: 'window', name, assetPath, isAction: true })
     const image = new Image()
-    image.src = prefixPath + this.assetPath
+    image.src = this.assetPath
     image.onload = () => {
       // TODO: 窗口的宽高计算
 

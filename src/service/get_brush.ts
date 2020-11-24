@@ -9,7 +9,7 @@ const getBrush = function () {
   // rect.borderWidth = 5
   // brush.add({ sprite: rect })
 
-  const image = new ImageStatic({ name: 'cat', assetPath: assets.image.testImage})
+  const image = new ImageStatic({ name: 'cat', assetPath: assets.image.cat})
   brush.add({ sprite: image })
 
   return brush

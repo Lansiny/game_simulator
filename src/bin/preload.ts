@@ -4,9 +4,9 @@ import { Brush } from '../model/display/brush'
 import { config } from '../config'
 import { getBrush } from '../service/get_brush'
 // const { dialog } = require('electron').remote
-
+import {assets} from '../config/assets'
 function test(canvas: HTMLElement, brush: Brush) {
-  console.log(brush)
+
 }
 
 // dom加载完成时执行
