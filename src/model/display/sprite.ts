@@ -8,10 +8,10 @@ class Sprite {
   isAction: boolean
   isValid: boolean
   position: { x: number; y: number }
-  speed: { x: number; y: number }
+  speed: { x: number; y: number }  // 每秒在相应方向移动的像素量
   offset: { x: number; y: number }
   rank: number
-  assetPath: string
+  assets: string
   image: HTMLImageElement
   constructor({
     name = 'unnamed',
@@ -24,8 +24,8 @@ class Sprite {
     position = { x: 0, y: 0 },
     speed = { x: 0, y: 0 },
     offset = { x: 0, y: 0 },
-    rank = 0,
-    assetPath = ''
+    rank = 3,
+    assets = ''
   }) {
     this.name = name
     this.group = group
@@ -38,7 +38,7 @@ class Sprite {
     this.speed = speed
     this.offset = offset
     this.rank = rank
-    this.assetPath = assetPath
+    this.assets = assets
   }
 
   buffer({ mainCtx, bufferCtx, bufferCanvas }) {

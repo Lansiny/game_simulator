@@ -1,16 +1,23 @@
 import { Brush } from '../model/display/brush'
-// import { Rect } from '../model/sprite/rect'
 import { assets } from '../config/assets'
+import { Rect } from '../model/sprite/rect'
+
 import { ImageStatic } from '../model/sprite/image_static'
+import { ImageAnimation } from '../model/sprite/image_animation'
 const getBrush = function () {
   const brush = new Brush({})
 
-  // const rect = new Rect({ name: 'rect01', isAction: true })
-  // rect.borderWidth = 5
-  // brush.add({ sprite: rect })
 
-  const image = new ImageStatic({ name: 'cat', assetPath: assets.image.cat})
+
+  const image = new ImageStatic({ assets: assets.image.cat})
   brush.add({ sprite: image })
+
+  const rect = new Rect({})
+  rect.borderWidth = 5
+  brush.add({ sprite: rect })
+
+  const animation = new ImageAnimation({ assets: assets.image.npc })
+  brush.add({ sprite: animation })
 
   return brush
 }

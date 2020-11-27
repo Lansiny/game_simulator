@@ -3,11 +3,11 @@ import { Sprite } from '../display/sprite'
 class ImageStatic extends Sprite {
   constructor({
     name = 'image01',
-    assetPath = ''
+    assets = ''
   }) {
-    super({ group: 'image', name, assetPath })
+    super({ group: 'image', name, assets })
     const image = new Image()
-    image.src = this.assetPath
+    image.src = assets
     image.onload = () => {
       this.width = image.naturalWidth
       this.height = image.naturalHeight
@@ -16,7 +16,16 @@ class ImageStatic extends Sprite {
   }
 
   draw({ ctx }) {
-    if (!this.assetPath) {
+    if (this.image) {
+      const args = [
+        this.image,
+        this.position.x,
+        this.position.y,
+        this.width,
+        this.height
+      ]
+      ctx.drawImage(...args)
+    } else if (!this.assets) {
       ctx.fillStyle = '#000'
       ctx.fillRect(
         this.position.x,
@@ -31,15 +40,6 @@ class ImageStatic extends Sprite {
         this.width - 2,
         this.height - 2
       )
-    } else if(this.image) {
-      const args = [
-        this.image,
-        this.position.x,
-        this.position.y,
-        this.width,
-        this.height
-      ]
-      ctx.drawImage(...args)
     }
   }
 }

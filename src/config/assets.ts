@@ -3,14 +3,12 @@ import path = require('path')
 import fs = require('fs')
 
 const assetsLoader = {
-  assetDirPath: '',
   assets: {},
   get: function (assetDirPath: any) {
     if (!assetDirPath) {
       return false
     }
-    this.assetDirPath = assetDirPath
-    this.listDir(this.assets, this.assetDirPath)
+    this.listDir(this.assets, assetDirPath)
     return this.assets
   },
   listDir: function (assets: any, dir: fs.PathLike) {

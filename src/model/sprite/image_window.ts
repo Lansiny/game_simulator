@@ -5,13 +5,13 @@ class ImageWindow extends Sprite {
   cellSize: number
   constructor({
     name = 'image01',
-    assetPath = '',
+    assets = '',
     width = 240,
     height = 120,
   }) {
-    super({ group: 'window', name, assetPath, isAction: true })
+    super({ group: 'window', name, assets, isAction: true })
     const image = new Image()
-    image.src = this.assetPath
+    image.src = assets
     image.onload = () => {
       // TODO: 窗口的宽高计算
 
@@ -22,7 +22,7 @@ class ImageWindow extends Sprite {
   }
 
   draw({ ctx }) {
-    if (this.assetPath) {
+    if (this.assets) {
       // TODO: 窗口的绘制方法
 
     } else {

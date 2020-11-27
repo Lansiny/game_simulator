@@ -1,4 +1,4 @@
-## [0.0.2](https://github.com/Lansiny/game_simulator/compare/v0.0.1...v0.0.2) (2020-11-24)
+## [0.0.2](https://github.com/Lansiny/game_simulator/compare/v0.0.1...v0.0.2) (2020-11-27)
 
 
 ### Bug Fixes
@@ -15,6 +15,7 @@
 * 完成动画循环优化 ([7d4754f](https://github.com/Lansiny/game_simulator/commit/7d4754fa2782b809a53ee2ad8af5acf5630368ce))
 * 完成双缓冲优化 ([bb8da9b](https://github.com/Lansiny/game_simulator/commit/bb8da9b32808c366e2a5c5d976c8ce325f9fdb7c))
 * 完成图片资源加载功能，完成图片sprite ([273971b](https://github.com/Lansiny/game_simulator/commit/273971bdbe55f36fed54da0250626f68d5d2584c))
+* 完成自动遍历资源目录转化为对象存放路径的功能 ([48e734c](https://github.com/Lansiny/game_simulator/commit/48e734c3d2bd1edb616e7fb49747f04aaceb590f))
 * 完成sprite的渲染和更新功能 ([539002b](https://github.com/Lansiny/game_simulator/commit/539002bdc071de8aa7dcb413582223d69c14bdea))
 * 优化资源加载方式 ([7d83f90](https://github.com/Lansiny/game_simulator/commit/7d83f908218bce829fbad87eaedb80958bb0f029))
 
