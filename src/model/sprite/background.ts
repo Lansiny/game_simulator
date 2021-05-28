@@ -1,11 +1,12 @@
 
 import { Sprite } from '../display/sprite'
-class ImageStatic extends Sprite {
+
+class Background extends Sprite {
   constructor({
-    name = 'image01',
+    name = 'background_01',
     assets = ''
   }) {
-    super({ group: 'image', name, assets })
+    super({ group: 'background', name, assets })
     const image = new Image()
     image.src = assets
     image.onload = () => {
@@ -44,4 +45,4 @@ class ImageStatic extends Sprite {
   }
 }
 
-export { ImageStatic }
+export { Background }

@@ -15,7 +15,7 @@ function createWindow() {
   let mainWindow = new BrowserWindow(config.window.main)
   mainWindow.loadFile(config.window.main.loadFile)
 
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()

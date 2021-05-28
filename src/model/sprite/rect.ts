@@ -1,6 +1,6 @@
 
-import {Sprite} from '../display/sprite'
-import {config} from '../../config/index'
+import { Sprite } from '../display/sprite'
+import { config } from '../../config'
 
 class Rect extends Sprite {
   fillStyle: string
@@ -8,7 +8,7 @@ class Rect extends Sprite {
   borderWidth: number
   constructor({
     // 父类属性
-    name = 'rect01',
+    name = 'rect_01',
     width = 25,
     height = 25,
     isAction = true,

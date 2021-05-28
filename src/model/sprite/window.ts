@@ -9,22 +9,21 @@ class ImageWindow extends Sprite {
     width = 240,
     height = 120,
   }) {
-    super({ group: 'window', name, assets, isAction: true })
+    super({ group: 'window', name, assets})
     const image = new Image()
     image.src = assets
     image.onload = () => {
       // TODO: 窗口的宽高计算
-
       this.width = width
       this.height = height
       this.image = image
+      this.isAction = true
     }
   }
 
   draw({ ctx }) {
     if (this.assets) {
       // TODO: 窗口的绘制方法
-
     } else {
       ctx.fillStyle = '#000'
       ctx.fillRect(

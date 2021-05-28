@@ -1,7 +1,7 @@
 import { Sprite } from '../display/sprite'
 import { config } from '../../config'
 
-class ImageAnimation extends Sprite {
+class Animation extends Sprite {
   image: HTMLImageElement
   duration: number  // 播放时长 单位 毫秒
   framesPerAction: number  // 动画总帧数
@@ -21,9 +21,14 @@ class ImageAnimation extends Sprite {
   sh: number  // 图像切割的高度
   imageWidth: number // 原图宽度
   imageHeight: number // 原图高度
-
+  keyStatus: {
+    'a': boolean,
+    's': boolean,
+    'd': boolean,
+    'w': boolean
+  }
   constructor({
-    name = 'animation01',
+    name = 'animation_01',
     assets = '',
     width = 48,
     height = 48,
@@ -55,6 +60,7 @@ class ImageAnimation extends Sprite {
       this.duration = duration
       this.elapsedTime = this.duration / this.framesPerAction
       this.isAction = true
+      this.addKeyListener(this.keyStatus)
     }
   }
 
@@ -90,7 +96,7 @@ class ImageAnimation extends Sprite {
   }
 
   action() {
-    this.animationAction()
+    this.animationAction(this.keyStatus)
     if (this.timer <= this.duration) {
       if (this.lastTime >= this.elapsedTime) {
         this.setSplitPosition()
@@ -114,28 +120,56 @@ class ImageAnimation extends Sprite {
     }
   }
 
-  animationAction() {
+  animationAction(keyStatus: any) {
+    const flagMoveX = this.position.x < config.display.width - this.width
     const flagMoveY = this.position.y < config.display.height - this.height
+    const flagStop = !flagMoveY || !flagMoveX
+    // TODO: 按键判定
+    if (flagMoveX) {
+      this.position.x += this.speed.y / (1000 / config.display.FPS)
+    }
     if (flagMoveY) {
       this.position.y += this.speed.y / (1000 / config.display.FPS)
     }
-    if (!flagMoveY) {
-      this.isAction = false
+    if (flagStop) {
+      this.isReplay = false
     }
   }
 
-  setSplitPosition() {
-    this.sx = this.sw * this.indexOfFrame
-    this.sy = this.sh * this.nowAction
+  keydown(event: KeyboardEvent, keyStatus: any) {
+    // console.log(event)
+    const key = event.key
+    switch (key) {
+      case 's':
+        this.keyStatus.s = !this.keyStatus.s
+        break
+      case 'd':
+        this.keyStatus.s = !this.keyStatus.d
+        break
+      case 'w':
+        this.keyStatus.s = !this.keyStatus.w
+        break
+      case 'a':
+        this.keyStatus.s = !this.keyStatus.a
+        break
+    }
+  }
+
+  keypress(event: KeyboardEvent, keyStatus: any) {
+    // console.log(event)
+  }
+
+  keyup(event: KeyboardEvent, keyStatus: any) {
+    // console.log(event.timeStamp)
   }
 
   replay() {
     if (this.isReplay) {
       this.timer = 0
     } else {
-      this.isValid = false
+      this.isValid = true
       this.isAction = false
-      this.isVisible = false
+      this.isVisible = true
     }
   }
 
@@ -144,6 +178,16 @@ class ImageAnimation extends Sprite {
     this.setSplitPosition()
   }
 
+  setSplitPosition() {
+    this.sx = this.sw * this.indexOfFrame
+    this.sy = this.sh * this.nowAction
+  }
+
+  addKeyListener(keyStatus: any) {
+    window.addEventListener('keydown', event => { this.keydown(event, keyStatus) })
+    window.addEventListener('keypress', event => { this.keypress(event, keyStatus) })
+    window.addEventListener('keyup', event => { this.keyup(event, keyStatus) })
+  }
 }
 
-export { ImageAnimation }
+export { Animation }
